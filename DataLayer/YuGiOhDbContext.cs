@@ -13,7 +13,7 @@ namespace DataLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.UseSqlServer(@"Server=DANI\SQLEXPRESS;Database=YuGiOhMasterDuel;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Server=DANI\SQLEXPRESS;Database=YuGiOhCardDatabase;Trusted_Connection=True;TrustServerCertificate=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace DataLayer
         public YuGiOhDbContext(DbContextOptions options)
             : base(options) { }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Card> Cards { get; set; }
         public DbSet<Deck> Decks { get; set; }
 
         public override int SaveChanges()
